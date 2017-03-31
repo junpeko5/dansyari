@@ -1,0 +1,24 @@
+<div class="row">
+  <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
+    <div class="item">
+      <div class="panel panel-default">
+        <div class="panel-heading text-center">
+          <% if @item.image? %>
+        　　<%= image_tag @item.image.url %>
+        　<% else %>
+        　　<%= image_tag 'noimage.gif' %>
+        　<% end %>
+        </div>
+        <div class="panel-body">
+          <p class="item-title"><%= @item.name %></p>
+          <p class="item-title"><%= @item.content %></p>
+          <div class="buttons text-center">
+            <% if logged_in? %>
+              <%= link_to 'この持ち物を編集する', edit_item_path(@item) %>
+              <%= link_to 'この持ち物を削除する', @item, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

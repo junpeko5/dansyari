@@ -2,6 +2,7 @@ class UsersController < ApplicationController
   before_action :require_user_logged_in, only: [:show, :edit, :update, :destroy]
   def show
     @user = User.find(params[:id])
+    @items = current_user.items.order('updated_at DESC')
   end
 
   def new

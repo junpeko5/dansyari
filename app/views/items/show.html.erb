@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-3 col-sm-6 col-xs-12 col-md-offset-3">
+  <div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-2">
     <div class="item">
       <div class="panel panel-default">
         <div class="panel-heading text-center">
@@ -12,11 +12,16 @@
         <div class="panel-body">
           <p class="item-title"><%= @item.name %></p>
           <p class="item-title"><%= @item.content %></p>
-          <div class="buttons text-center">
-            <% if logged_in? %>
-              <%= link_to 'この持ち物を編集する', edit_item_path(@item) %>
-              <%= link_to 'この持ち物を削除する', @item, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %>
-            <% end %>
+          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <div class="btn-group" role="group">
+              <% if logged_in? %>
+                <button type="button" class="btn btn-default"><%= link_to 'この持ち物を編集する', edit_item_path(@item) %></button>
+              </div>
+              <div class="btn-group" role="group">
+                <button type="button" class="btn btn-default"><%= link_to 'この持ち物を削除する', @item, method: :delete, data: { confirm: '本当に削除してよろしいですか？' } %></button>
+              </div>
+              <% end %>
+            </div>
           </div>
         </div>
       </div>

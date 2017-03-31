@@ -1,4 +1,7 @@
-<h1>メッセージ編集ページ</h1>
+<h1>アイテム編集ページ</h1>
 
 <%= render 'form', item: @item %>
-<%= link_to '詳細に戻る', @item %>
+
+<div class="btn-group btn-detail" role="group">
+  <button type="button" class="btn btn-default"><%= link_to '詳細に戻る', @item %></button>
+</div>

@@ -66,3 +66,6 @@ p.item-title {
   -webkit-line-clamp: 2;
   overflow: hidden;
 }
+.btn-detail {
+  margin: 10px;
+}

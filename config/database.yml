@@ -48,7 +48,9 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
   database: dansyari_production
   username: dansyari
   password: <%= ENV['DANSYARI_DATABASE_PASSWORD'] %>

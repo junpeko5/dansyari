@@ -10,5 +10,6 @@
     </div>
   </div>
 <% end %>
-
-<%= render 'items/items', items: @items %>
+<% if logged_in? %>
+  <%= render 'items/items', items: @items %>
+<% end %>

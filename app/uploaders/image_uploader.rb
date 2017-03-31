@@ -1,21 +1,23 @@
 class ImageUploader < CarrierWave::Uploader::Base
 
   # Include RMagick or MiniMagick support:
-  # include CarrierWave::RMagick
+  # リサイズしたり画像形式を変更するのに必要
+  #include CarrierWave::RMagick
   include CarrierWave::MiniMagick
-  process resize_to_limit: [400, 400]
+   # 画像の上限を700pxにする
+  process :resize_to_limit => [700, 700]
 
   # Choose what kind of storage to use for this uploader:
   storage :file
     if Rails.env.production?
     include Cloudinary::CarrierWave
-  else
-    storage :file
-  end
-
-  def public_id
-    model.id
-  end
+    else
+      storage :file
+    end
+  
+    def public_id
+      model.id
+    end
   # storage :fog
 
   # Override the directory where uploaded files will be stored.
@@ -55,12 +57,6 @@ class ImageUploader < CarrierWave::Uploader::Base
   # def filename
   #   "something.jpg" if original_filename
   # end
-
-   # リサイズしたり画像形式を変更するのに必要
-  #include CarrierWave::RMagick
-
- # 画像の上限を700pxにする
-  #process :resize_to_limit => [700, 700]
 
   # 保存形式をJPGにする
   #process :convert => 'jpg'

@@ -63,3 +63,5 @@ gem 'fog'
 group :production do
   gem 'pg'
 end
+
+gem 'cloudinary'
